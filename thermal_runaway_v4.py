@@ -2,29 +2,14 @@
 THERMAL RUNAWAY PROPAGATION SIMULATION — v4.4  (Publication-ready figures)
 ======================================================================
 Changes from v4.3:
-  • Base font size raised to 14 pt; axis labels 14 pt; tick labels 13 pt;
-    legend 12 pt; panel labels 16 pt bold
-  • All figure-level suptitles removed — description belongs in manuscript
-    caption, not embedded in the figure image
-  • Maximum 2 panels per row enforced throughout (all 1×3 layouts replaced
-    with 2×2)
-  • Fig 5 (air vs liquid): restructured to 2×2; fourth panel now shows the
-    liquid-cooling spatial trigger-probability map for spatial context
-  • Fig 6 (NEW): cooling design guideline curve — sigmoid fit to h_c sweep,
+    • Fig 6 (NEW): cooling design guideline curve — sigmoid fit to h_c sweep,
     bootstrap 95 % CI band, three engineering safety threshold annotations,
     plus a companion panel showing mean cells triggered vs h_c
   • Regime analysis figure: suptitle removed; panel titles made more concise
   • All save DPI kept at 300 (journal minimum)
 
 FIX (v4.4 → v4.4-fixed):
-  • plot_design_guideline_curve(): the `thresholds` dict previously contained
-    hardcoded h_c values of 310, 380, 440 W m⁻²K⁻¹ (pre-run planning
-    targets that were never updated). These are now computed analytically
-    from the fitted sigmoid parameters using the inverse:
-        h_thresh = h50 + log(1/p_target − 1) / k
-    giving ≈ 206, 209, 213 W m⁻²K⁻¹ for the actual fitted curve, which
-    matches the values stated throughout the manuscript text and captions.
-"""
+  
 
 from __future__ import annotations
 
